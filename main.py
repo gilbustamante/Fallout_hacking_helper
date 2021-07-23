@@ -30,7 +30,9 @@ def main(word_list):
             match_num = sum(c1 == c2 for c1, c2 in zip(word, used_word))
             if match_num != correct_number:
                 word_list.remove(word)
-        print(f"Remaining words: {word_list}")
+        if used_word in word_list:
+            word_list.remove(used_word)
+        print(f"Remaining possible words: {word_list}")
 
 if __name__ == "__main__":
     entered_words = get_entered_words()
